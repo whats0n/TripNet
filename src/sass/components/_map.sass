@@ -1,0 +1,149 @@
+.map
+	&__inner
+		height: 500px
+		border-radius: 4px
+		box-shadow: 0 7px 19px 2px rgba(0, 0, 0, 0.05)
+
+.map-controls
+	padding: 20px
+	border-radius: 4px
+	height: 500px
+	background: $white
+	box-shadow: 0 7px 19px 2px rgba(0, 0, 0, 0.05)
+	&__header
+		margin-bottom: 20px
+		border: 1px solid rgba(#cfdee5, 0.5)
+		border-radius: 4px 4px 0 0
+		background: $white
+		font-size: 0
+	&__box
+		margin-bottom: 20px
+	&__footer
+		padding: 20px 12px
+
+.map-type
+	position: relative
+	display: inline-block
+	vertical-align: top
+	padding: 5px 0
+	width: 50%
+	text-align: center
+	cursor: pointer
+	+ .map-type
+		border-left: 1px solid rgba(#cfdee5, 0.5)
+	input
+		display: none
+		&:checked
+			~ .map-type
+				&__title
+					font-weight: 700
+					&:before
+						opacity: 1
+	&__icon,
+	&__title
+		display: block
+	&__icon
+		height: 31px
+		font-size: 0
+		text-align: center
+		.icon,
+		img
+			display: inline-block
+			vertical-align: top
+			font-size: 31px
+		img
+			height: 100%
+	&__title
+		+f(14, 17px)
+		&:before
+			content: ''
+			position: absolute
+			left: -1px
+			right: -1px
+			bottom: -1px
+			border-bottom: 2px solid $green
+			opacity: 0
+			transition: opacity 0.3s
+
+.map-directions
+	&__label,
+	&__items
+		display: inline-block
+		vertical-align: middle
+	&__label,
+	&__item
+		margin-right: 12px
+	&__item
+		display: inline-block
+		vertical-align: top
+		font-size: 0
+		cursor: pointer
+		input
+			display: none
+			&:checked
+				+ .map-directions
+					&__icon
+						background: $green
+	&__icon
+		display: block
+		border-radius: 4px
+		width: 28px
+		height: 28px
+		color: $white
+		background: #85d9dd
+		line-height: 28px
+		text-align: center
+		transition: background 0.3s
+		.icon
+			display: inline-block
+			vertical-align: middle
+			&-car
+				font-size: 16px
+			&-train
+				font-size: 18px
+			&-walk 
+				font-size: 20px
+
+.map-addresses
+	position: relative
+	padding: 0 10px
+	&__route
+		position: absolute
+		left: 100%
+		bottom: 9px
+		margin-left: -7px
+	&__field
+		position: relative
+		+ .map-addresses__field
+			margin-top: 14px
+	&__icon
+		position: absolute
+		right: 100%
+		margin-right: 5px
+		width: 16px
+		height: 16px
+		font-size: 16px
+		text-align: center
+		&-from 
+			top: 1px
+		&-to
+			bottom: 4px
+	&__dots
+		position: absolute
+		top: 17px
+		right: 100%
+		padding: 2px 0 1px
+		margin-right: 1px
+		&:before,
+		&:after,
+		i
+			display: block
+			margin: 0 auto 2px
+			border-radius: 50%
+			width: 4px
+			height: 4px
+			opacity: 0.5
+			background: #5b6d7c
+		&:before,
+		&:after
+			content: ''

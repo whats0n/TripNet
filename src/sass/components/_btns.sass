@@ -1,0 +1,17 @@
+.btn
+	display: inline-block
+	vertical-align: top
+	padding: 11px 16px 
+	border-radius: 4px
+	color: $white
+	background: #51e2b8
+	box-shadow: 0 2px 19px 0 rgba(0, 0, 0, 0.1)
+	+f(15, 18px, null, 700)
+	text-transform: uppercase
+	transition: background 0.3s
+	&:hover
+		background: darken(#51e2b8, 10%)
+	&:active
+		background: darken(#51e2b8, 15%)
+	&_wide
+		width: 100%

@@ -1,0 +1,140 @@
+---
+title: Index page
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	
+	<div class="location">
+		<div class="location__header">
+			<h3 class="title-md">location</h3>
+		</div>
+		<div class="inner location__inner">
+			<div class="location__container">
+				<div class="location__controls">
+					<form action="/" class="map-controls">
+						<div class="map-controls__header map-controls__box">
+							{% for item in [ 
+								{ icon: 'transportation', title: 'Transportation' },
+								{ icon: 'route-planner', title: 'Route planner', attrs: 'checked' }
+							] %}
+								<label class="map-type">
+									<input type="radio" name="map-type" {{item.attrs | safe}}>
+									<span class="map-type__icon">
+										{# {{mixins.icon(item.icon)}} #}
+										<img src="https://placecage.com/62/62" alt="{{item.title}}">
+									</span>
+									<span class="map-type__title">{{item.title}}</span>
+								</label>
+							{% endfor %}
+						</div>
+						<div class="map-directions map-controls__box">
+							<div class="label map-directions__label">Directions</div>
+							<div class="map-directions__items">
+								{% for item in [
+									{ icon: 'car' },
+									{ icon: 'train', attrs: 'checked' },
+									{ icon: 'walk' }
+								] %}
+								    <label class="map-directions__item">
+								    	<input type="radio" name="map-direction" {{item.attrs | safe}}>
+								    	<span class="map-directions__icon">
+								    		{{mixins.icon(item.icon)}}
+								    	</span>
+								    </label>
+								{% endfor %}
+							</div>
+						</div>
+						<div class="map-addresses map-controls__box">
+							<div class="map-addresses__dots"><i></i></div>
+							<div class="map-addresses__route">
+								{{mixins.icon('route')}}
+							</div>
+							<div class="map-addresses__field">
+								<input type="text" class="input" placeholder="Enter address">
+								<div class="map-addresses__icon map-addresses__icon-from">
+									{{mixins.icon('target')}}
+								</div>
+							</div>
+							<div class="map-addresses__field">
+								<input type="text" class="input" placeholder="Enter address">
+								<div class="map-addresses__icon map-addresses__icon-to">
+									{{mixins.icon('marker')}}
+								</div>
+							</div>
+						</div>
+						<div class="map-controls__footer">
+							<button class="btn btn_wide">Get Directions</button>
+						</div>
+					</form>
+				</div>
+				<div class="map location__map">
+					<div class="map__inner" style="background-image: url(https://placecage.com/900/500);"></div>
+				</div>
+			</div>
+			<div class="items location__items">
+				<div class="items__header">
+					<h3 class="title-md items__title">Local attractions</h3>
+					<div class="items__description">
+						<p>Click on the name to get directions to the local attractions</p>
+					</div>
+				</div>
+				<div class="items__slider">
+					{% for item in [
+						{
+							icon: '',
+							title: 'museums',
+							info: [
+								{ label: "Falaise d'Etretat", value: '3.3 km' },
+								{ label: 'Espace Art contemporain', value: '1.3 km' },
+								{ label: 'Natterra Private Tours', value: '7.7 km' },
+								{ label: 'Le Clos Arsene Lupin', value: '0.5 km' }
+							]
+						},
+						{
+							icon: '',
+							title: 'parks',
+							info: [
+								{ label: 'Ferme Le Valaine', value: '2.1 km' },
+								{ label: 'étretat', value: '0.9 km' },
+								{ label: 'City Center', value: '1.2 km' }
+							]
+						},
+						{
+							icon: '',
+							title: 'theaters',
+							info: [
+								{ label: 'Aiguille', value: '3.3 km' },
+								{ label: "Falaise d'Etretat", value: '1.3 km' },
+								{ label: 'Espace Art contemporain', value: '7.7 km' },
+								{ label: 'Octeville', value: '0.5 km' },
+								{ label: 'Le Clos Arsene Lupin', value: '3.5 km' }
+							]
+						}
+					] %}
+						<div class="items__slide">
+							<div class="item">
+								<div class="item__icon">
+									{# {{mixins.icon(item.icon)}} #}
+									<img src="https://placecage.com/100/100" alt="{{title}}">
+								</div>
+								<div class="item__content">
+									<div class="label item__title">{{item.title}}</div>
+									<ul class="item__list">
+										{% for item in item.info %}
+											<li class="item__point">
+												<span class="item__value">{{item.value}}</span>
+												<span class="item__label">{{item.label}}</span>
+											</li>
+										{% endfor %}
+									</ul>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

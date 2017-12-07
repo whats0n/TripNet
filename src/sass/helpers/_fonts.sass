@@ -1,0 +1,61 @@
+//FONTS
+=fontpath($name, $name1, $file)
+	src: local($name), local($name1), url("../fonts/" + $file + ".woff2") format("woff2"), url("../fonts/" + $file + ".woff") format("woff")
+=fontdefault($style, $weight, $family: null)
+	@if $family != null
+		font-family: $family
+	@else 
+		font-family: 'Lato'
+	font-style: $style
+	font-weight: $weight
+
+//LATO
+//thin
+// @font-face
+// 	+fontdefault(normal, 100)
+// 	+fontpath('Lato Hairline', 'Lato-Hairline', lato-hairline)
+// @font-face
+// 	+fontdefault(italic, 100)
+// 	+fontpath('Lato Hairline Italic', 'Lato-HairlineItalic', lato-hairlineitalic)
+//light
+// @font-face
+// 	+fontdefault(normal, 300)
+// 	+fontpath('Lato Light', 'Lato-Light', lato-light)
+// @font-face
+// 	+fontdefault(italic, 300)
+// 	+fontpath('Lato Light Italic', 'Lato-LightItalic', lato-lightitalic)
+//regular
+@font-face
+	+fontdefault(normal, 400)
+	+fontpath('Lato Regular', 'Lato-Regular', lato-regular)
+@font-face
+	+fontdefault(italic, 400)
+	+fontpath('Lato Italic', 'Lato-Italic', lato-italic)
+//regular
+// @font-face
+// 	+fontdefault(normal, 500)
+// 	+fontpath('Lato Medium', 'Lato-Medium', lato-medium)
+// @font-face
+// 	+fontdefault(italic, 500)
+// 	+fontpath('Lato MediumItalic', 'Lato-MediumItalic', lato-mediumitalic)
+//bold
+@font-face
+	+fontdefault(normal, 700)
+	+fontpath('Lato Bold', 'Lato-Bold', lato-bold)
+@font-face
+	+fontdefault(italic, 700)
+	+fontpath('Lato Bold Italic', 'Lato-BoldItalic', lato-bolditalic)
+//heavy
+// @font-face
+// 	+fontdefault(normal, 800)
+// 	+fontpath('Lato Heavy', 'Lato-Heavy', lato-heavy)
+// @font-face
+// 	+fontdefault(italic, 800)
+// 	+fontpath('Lato Heavy Italic', 'Lato-HeavyItalic', lato-heavyitalic)
+//black
+// @font-face
+// 	+fontdefault(normal, 900)
+// 	+fontpath('Lato Black', 'Lato-Black', lato-black)
+// @font-face
+// 	+fontdefault(italic, 900)
+// 	+fontpath('Lato Black Italic', 'Lato-BlackItalic', lato-blackitalic)
